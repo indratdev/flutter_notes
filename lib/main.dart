@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_notes/helpers/note_color.dart';
 import 'package:flutter_notes/helpers/routes.dart';
 
 import 'bloc/bloc_notes/notes_bloc.dart';
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: appThema,
-            darkTheme: ThemeData.dark(),
+            darkTheme:
+                // NoteColors.darkTheme,
+                ThemeData.dark(),
             // themeMode: ThemeMode.light,
             routes: Routes().getRoutes(),
           );

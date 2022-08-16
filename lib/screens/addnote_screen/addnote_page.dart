@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_notes/bloc/bloc_notes/notes_bloc.dart';
@@ -41,8 +40,9 @@ class AddNotePage extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: NoteColors.oysterBay,
           floatingActionButton: FloatingActionButton(
-            backgroundColor: NoteColors.plantation,
+            backgroundColor: NoteColors.coral,
             onPressed: () {
               if (keyForm.currentState!.validate()) {
                 final notes = NotesModel(
@@ -58,10 +58,10 @@ class AddNotePage extends StatelessWidget {
             child: Icon(Icons.save),
           ),
           appBar: AppBar(
-            backgroundColor: NoteColors.springRain,
+            backgroundColor: NoteColors.frenchPass,
             title: const Text(
               'Tambah Notes',
-              style: TextStyle(color: NoteColors.plantation),
+              style: TextStyle(color: NoteColors.blackColor),
             ),
           ),
           body: SingleChildScrollView(

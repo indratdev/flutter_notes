@@ -8,11 +8,14 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: NoteColors.oysterBay,
       appBar: AppBar(
-        backgroundColor: NoteColors.springRain,
+        backgroundColor: NoteColors.frenchPass,
         title: const Text(
           'Tentang Aplikasi',
-          style: TextStyle(color: NoteColors.plantation),
+          style: TextStyle(
+            color: NoteColors.blackColor,
+          ),
         ),
       ),
       body: Center(
@@ -37,7 +40,7 @@ class AboutPage extends StatelessWidget {
               Text(Constants.appName),
               Text('Version : ${Constants.appVersion}'),
               SizedBox(height: 10),
-              Text('Developer'),
+              Text('Mobile Developer'),
               Text('Indrat Saputra'),
             ],
           ),

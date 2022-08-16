@@ -23,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        color: NoteColors.springRain,
+        color: NoteColors.oysterBay,
         child: Image.asset(
           'assets/images/note-book.png',
         ),

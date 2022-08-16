@@ -15,19 +15,20 @@ class SettingPage extends StatelessWidget {
         return Future.value(true);
       },
       child: Scaffold(
+        backgroundColor: NoteColors.oysterBay,
         appBar: AppBar(
-          backgroundColor: NoteColors.springRain,
+          backgroundColor: NoteColors.frenchPass,
           title: Text(
             'Settings',
             style: TextStyle(
-              color: NoteColors.plantation,
+              color: NoteColors.blackColor,
             ),
           ),
         ),
         body: ListView(
           children: <Widget>[
             _clearData(),
-            _theme(),
+            // _theme(),
             InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, '/setting/about');
@@ -52,8 +53,9 @@ class _theme extends StatelessWidget {
         Navigator.pushNamed(context, '/setting/theme');
       },
       child: Card(
-        color: NoteColors.contentColor,
+        color: NoteColors.backgroundColor,
         elevation: 5,
+        shadowColor: NoteColors.springRain,
         child: ListTile(
           leading: Icon(
             Icons.brightness_6,
@@ -104,27 +106,42 @@ class _clearData extends StatelessWidget {
                 title: const Text("Konfirmasi"),
                 content: const Text("Anda Yakin Hapus Semua Data ?"),
                 actions: <Widget>[
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text("Cancel")),
-                  TextButton(
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text(
+                      "Cancel",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                    ),
+                  ),
+                  ElevatedButton(
                     onPressed: () {
                       BlocProvider.of<NotesBloc>(context)
                           .add(DeleteAllNoteEvent());
                       Navigator.pop(context);
                     },
-                    child: const Text("Hapus",
-                        style: TextStyle(color: Colors.red)),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue,
+                    ),
+                    child: const Text(
+                      "Hapus",
+                      // style: TextStyle(
+                      //     // color: NoteColors.backgroundColor,
+                      //     backgroundColor: NoteColors.springRain)
+                    ),
                   ),
                 ],
               ),
             );
           },
           child: Card(
-            color: NoteColors.contentColor,
+            color: NoteColors.backgroundColor,
             elevation: 5,
+            shadowColor: NoteColors.springRain,
             child: ListTile(
               leading: Icon(
                 Icons.delete,

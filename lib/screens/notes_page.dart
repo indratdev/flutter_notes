@@ -11,13 +11,14 @@ class NoteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: NoteColors.oysterBay,
       appBar: AppBar(
-        backgroundColor: NoteColors.springRain,
+        backgroundColor: NoteColors.frenchPass,
         title: Text(
           Constants.appName,
-          style: TextStyle(
-            color: NoteColors.cuttySark,
-            fontWeight: FontWeight.bold,
+          style: const TextStyle(
+            color: NoteColors.blackColor,
+            // fontWeight: FontWeight.w800,
             fontFamily: 'Gilroy',
           ),
         ),
@@ -28,7 +29,7 @@ class NoteApp extends StatelessWidget {
           Navigator.pushNamed(context, '/addNote');
         },
         child: const Icon(CupertinoIcons.add),
-        backgroundColor: NoteColors.plantation,
+        backgroundColor: NoteColors.coral,
       ),
       body: _body(),
     );
@@ -45,9 +46,8 @@ class actionAppBarButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 5, left: 5),
       child: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.settings,
-          color: NoteColors.plantation,
         ),
         onPressed: () {
           Navigator.pushNamed(context, '/settings');
@@ -77,7 +77,11 @@ class _body extends StatelessWidget {
         if (state is LoadedNotesState) {
           final notes = state.notes;
           if (notes.length == 0) {
-            return Center(child: Text('Tidak Ada Data'));
+            return Center(
+                child: Text(
+              'Tidak Ada Data',
+              style: TextStyle(fontSize: 20),
+            ));
           } else {
             return Container(
               padding: EdgeInsets.all(5),
@@ -91,20 +95,27 @@ class _body extends StatelessWidget {
                       context
                           .read<NotesBloc>()
                           .add(ViewNoteEvent(id: notes[index].id!));
-
                       Navigator.pushNamed(context, '/editNote');
                     },
                     child: Card(
                       elevation: 10,
-                      color: NoteColors.contentColor,
+                      color: (index % 4 == 0)
+                          ? NoteColors.greenLight
+                          : NoteColors.cream,
                       child: ListTile(
-                        title: Text(notes[index].title),
+                        title: Text(
+                          notes[index].title,
+                          style: const TextStyle(
+                            color: NoteColors.blackColor,
+                          ),
+                        ),
                         subtitle: Text(
-                          // 'SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle',
                           notes[index].content,
-
                           overflow: TextOverflow.ellipsis,
                           maxLines: 6,
+                          style: TextStyle(
+                            color: NoteColors.blackColor,
+                          ),
                         ),
                       ),
                     ),

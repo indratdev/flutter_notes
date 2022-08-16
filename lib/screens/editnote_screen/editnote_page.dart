@@ -43,11 +43,12 @@ class EditNotePage extends StatelessWidget {
               return Future.value(true);
             },
             child: Scaffold(
+              backgroundColor: NoteColors.oysterBay,
               appBar: AppBar(
-                backgroundColor: NoteColors.springRain,
+                backgroundColor: NoteColors.frenchPass,
                 title: Text(
                   state.note.title,
-                  style: TextStyle(color: NoteColors.plantation),
+                  style: TextStyle(color: NoteColors.blackColor),
                   overflow: TextOverflow.ellipsis,
                 ),
                 actions: [
@@ -116,7 +117,7 @@ class EditNotePage extends StatelessWidget {
                 ),
               ),
               floatingActionButton: FloatingActionButton(
-                backgroundColor: NoteColors.plantation,
+                backgroundColor: NoteColors.coral,
                 onPressed: () {
                   if (keyForm.currentState!.validate()) {
                     final notes = NotesModel(
@@ -136,7 +137,7 @@ class EditNotePage extends StatelessWidget {
           );
         } else {
           return Container(
-            color: Colors.white,
+            color: NoteColors.springRain,
             child: const Center(
               child: CircularProgressIndicator(),
             ),

@@ -16,12 +16,15 @@ class ThemePage extends StatelessWidget {
           _groupValue = state.groupValue;
         }
         return Scaffold(
+          backgroundColor: NoteColors.oysterBay,
           appBar: AppBar(
-            backgroundColor: NoteColors.backgroudColor,
-            title: Text(
+            backgroundColor: NoteColors.frenchPass,
+            title: const Text(
               'Pilihan Mode',
               style: TextStyle(
-                  color: NoteColors.titleColor, fontWeight: FontWeight.bold),
+                color: NoteColors.blackColor,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
           body: Column(

@@ -4,8 +4,9 @@ import 'package:flutter_notes/helpers/note_color.dart';
 
 Widget myCard(String title, IconData icons) {
   return Card(
-    color: NoteColors.contentColor,
+    color: NoteColors.backgroundColor,
     elevation: 10,
+    shadowColor: NoteColors.springRain,
     child: ListTile(
       title: Text(title),
       leading: Icon(
@@ -28,13 +29,13 @@ Widget reuseIconSuccess(BuildContext context) {
 Future reuseSuccessDialog(
     BuildContext context, String title, Function()? onpress) {
   return showDialog(
-    barrierColor: NoteColors.plantation,
+    barrierColor: NoteColors.oysterBay,
     context: context,
     builder: (context) => AlertDialog(
       title: reuseIconSuccess(context),
       content: Text(title, textAlign: TextAlign.center),
       actions: [
-        TextButton(
+        ElevatedButton(
           onPressed: onpress,
           child: const Text('OK'),
         ),
